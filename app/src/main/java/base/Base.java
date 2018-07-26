@@ -12,7 +12,7 @@ public class Base extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(this,"base" );
+        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(this,"base2" );
         Database database = devOpenHelper.getWritableDb();
         daoSession = new DaoMaster(database).newSession();
     }

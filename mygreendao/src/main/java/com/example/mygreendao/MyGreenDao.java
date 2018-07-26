@@ -19,6 +19,12 @@ public class MyGreenDao {
         usuarios.addStringProperty("usu_email");
         usuarios.addStringProperty("usu_password");
 
+        Entity lugares = schema.addEntity("Lugares");
+        lugares.addLongProperty("id").primaryKey().autoincrement();
+        lugares.addStringProperty("name");
+        lugares.addStringProperty("image");
+        lugares.addStringProperty("description");
+
         new DaoGenerator().generateAll(schema, "./app/src/main/java");
     }
 

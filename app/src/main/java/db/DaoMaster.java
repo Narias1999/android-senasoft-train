@@ -22,11 +22,13 @@ public class DaoMaster extends AbstractDaoMaster {
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
         UsuariosDao.createTable(db, ifNotExists);
+        LugaresDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
         UsuariosDao.dropTable(db, ifExists);
+        LugaresDao.dropTable(db, ifExists);
     }
 
     /**
@@ -46,6 +48,7 @@ public class DaoMaster extends AbstractDaoMaster {
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
         registerDaoClass(UsuariosDao.class);
+        registerDaoClass(LugaresDao.class);
     }
 
     public DaoSession newSession() {
@@ -60,6 +63,8 @@ public class DaoMaster extends AbstractDaoMaster {
      * Calls {@link #createAllTables(Database, boolean)} in {@link #onCreate(Database)} -
      */
     public static abstract class OpenHelper extends DatabaseOpenHelper {
+        public LugaresDao placesModel;
+        public DaoSession session;
         public OpenHelper(Context context, String name) {
             super(context, name, SCHEMA_VERSION);
         }
@@ -67,11 +72,24 @@ public class DaoMaster extends AbstractDaoMaster {
         public OpenHelper(Context context, String name, CursorFactory factory) {
             super(context, name, factory, SCHEMA_VERSION);
         }
-
+        public void  insertPlace (String name, String image, String description) {
+            Lugares lugares = new Lugares(null, name, image, description);
+            placesModel.insert(lugares);
+        }
         @Override
         public void onCreate(Database db) {
+            session = new DaoMaster(db).newSession();
+            placesModel = session.getLugaresDao();
             Log.i("greenDAO", "Creating tables for schema version " + SCHEMA_VERSION);
             createAllTables(db, false);
+            System.out.println("############ INSERTANDO ##############");
+            insertPlace("Monumento Antonia Santos", "antonia", "lorem ipsum sit dolor amet");
+            insertPlace("Barbara", "barbara", "lorem ipsum sit dolor amet");
+            insertPlace("Basilisca Chiquinquirá", "basilisca", "lorem ipsum sit dolor amet");
+            insertPlace("Esquina el Berbeo", "berbeo", "lorem ipsum sit dolor amet");
+            insertPlace("Parque Fominaya", "fominaya", "lorem ipsum sit dolor amet");
+            insertPlace("Parque natural el Gallineral", "gallineral", "lorem ipsum sit dolor amet");
+            insertPlace("El Horacio", "horacio", "lorem ipsum sit dolor amet");
         }
     }
 
