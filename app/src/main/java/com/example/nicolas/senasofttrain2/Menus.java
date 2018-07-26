@@ -71,19 +71,12 @@ public class Menus extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        // getActivity().setTitle("My Title");
-        Intent intentc = new Intent(this, Lienar.class);
-        if (id == R.id.nav_camera) {
-            intentc = new Intent(this, Lienar.class);
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        Intent intentc = new Intent(this, ListUsers.class);
+        if (id == R.id.nav_users) {
+            intentc = new Intent(this, ListUsers.class);
+        } else if (id == R.id.nav_sites) {
+            intentc = new Intent(this, places.class);
+        } else if (id == R.id.nav_new_site) {
 
         }
         startActivity(intentc);

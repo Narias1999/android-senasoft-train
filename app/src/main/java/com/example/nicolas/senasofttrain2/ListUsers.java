@@ -1,9 +1,11 @@
 package com.example.nicolas.senasofttrain2;
 
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import java.util.List;
@@ -13,7 +15,7 @@ import db.DaoSession;
 import db.Usuarios;
 import db.UsuariosDao;
 
-public class ListUsers extends AppCompatActivity {
+public class ListUsers extends Menus {
     public DaoSession db;
     public UsuariosDao usuarios;
     public RecyclerView recyclerView;
@@ -21,10 +23,12 @@ public class ListUsers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_users);
+        FrameLayout frame = (FrameLayout) findViewById(R.id.fl);
+        getLayoutInflater().inflate(R.layout.activity_list_users, frame);
+        NavigationView drawer = (NavigationView) findViewById(R.id.nav_view);
+        drawer.getMenu().getItem(0).setChecked(true);
+        setTitle("Usuarios");
         initVariables();
-        String param = getIntent().getStringExtra("nombre");
-        Toast.makeText(this, param, Toast.LENGTH_SHORT).show();
     }
 
     public void initVariables() {
