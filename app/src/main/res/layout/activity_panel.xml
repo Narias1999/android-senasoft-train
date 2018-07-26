@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Panel"
+    android:columnCount="3"
+    android:rowCount="3">
+
+    <TextView
+        android:text="Hola 1"
+        style="@style/gridcenter"
+        />
+
+    <TextView
+        android:text="Hola 2"
+        style="@style/gridcenter"
+        />
+
+    <TextView
+        android:text="Hola 3"
+        style="@style/gridcenter"
+        />
+
+    <TextView
+        style="@style/gridcenter"
+        android:text="Hola 4" />
+
+    <TextView
+        android:text="Hola 2"
+        style="@style/gridcenter"
+        />
+
+    <TextView
+        android:text="Hola 3"
+        style="@style/gridcenter"
+        />
+
+    <TextView
+        style="@style/gridcenter"
+        android:text="Hola 4" />
+    <Button
+        android:onClick="go"
+        android:text="Linear"
+        android:textAllCaps="false"/>
+
+</GridLayout>
