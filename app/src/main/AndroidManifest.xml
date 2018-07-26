@@ -26,7 +26,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".LogIn" />
         <activity android:name=".Register" />
-        <activity android:name=".ListUsers"></activity>
+        <activity android:name=".ListUsers" />
+        <activity android:name=".userDetails"></activity>
     </application>
 
 </manifest>

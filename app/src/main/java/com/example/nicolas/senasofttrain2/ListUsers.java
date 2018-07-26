@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -22,6 +23,8 @@ public class ListUsers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_users);
         initVariables();
+        String param = getIntent().getStringExtra("nombre");
+        Toast.makeText(this, param, Toast.LENGTH_SHORT).show();
     }
 
     public void initVariables() {

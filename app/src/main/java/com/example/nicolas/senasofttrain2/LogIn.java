@@ -52,6 +52,7 @@ public class LogIn extends AppCompatActivity {
 
     public void goToList () {
         Intent route = new Intent(LogIn.this, ListUsers.class);
+        route.putExtra("nombre", username.getText().toString());
         startActivity(route);
     }
 }
