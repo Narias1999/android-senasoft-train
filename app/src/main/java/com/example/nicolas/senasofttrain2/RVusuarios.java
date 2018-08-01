@@ -8,8 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -35,15 +38,27 @@ public class RVusuarios extends RecyclerView.Adapter<RVusuarios.Rview> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RVusuarios.Rview holder, int position) {
+    public void onBindViewHolder(@NonNull RVusuarios.Rview holder, final int position) {
         final String name = Users.get(position).getUsu_nombre();
+        final String username = Users.get(position).getUsu_nick();
+        final String birthDate = Users.get(position).getUsu_fecha();
+        final String email = Users.get(position).getUsu_email();
+        final String imageUrl = "http://i.imgur.com/DvpvklR.png";
+
+        Picasso.get().load(imageUrl)
+                .error(R.drawable.berbeo)
+                .into(holder.imageView);
         holder.name.setText(name);
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), LogIn.class);
+                Intent i = new Intent(v.getContext(), UserDetail.class);
+                i.putExtra("name", name);
+                i.putExtra("username", username);
+                i.putExtra("birthDate", birthDate);
+                i.putExtra("email", email);
+                i.putExtra("image", imageUrl);
                 v.getContext().startActivity(i);
-                Toast.makeText(context, "Hola " + name, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -56,8 +71,10 @@ public class RVusuarios extends RecyclerView.Adapter<RVusuarios.Rview> {
     public class Rview extends RecyclerView.ViewHolder {
         TextView name;
         CardView card;
+        ImageView imageView;
         public Rview(View itemView) {
             super(itemView);
+            imageView = (ImageView) itemView.findViewById(R.id.avatar);
             name = itemView.findViewById(R.id.liName);
             card = itemView.findViewById(R.id.cardItem);
         }

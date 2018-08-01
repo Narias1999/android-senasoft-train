@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nicolas.senasofttrain2">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="base.Base"
         android:allowBackup="true"
@@ -28,7 +30,8 @@
         <activity android:name=".Register" />
         <activity android:name=".ListUsers" />
         <activity android:name=".userDetails" />
-        <activity android:name=".places"></activity>
+        <activity android:name=".places" />
+        <activity android:name=".UserDetail"></activity>
     </application>
 
 </manifest>

@@ -35,6 +35,9 @@ public class RVPlaces extends RecyclerView.Adapter<RVPlaces.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        String imageName = places.get(position).getImage();
+        int resourceId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+        holder.imageView.setBackgroundResource(resourceId);
         holder.name.setText(places.get(position).getName());
     }
 

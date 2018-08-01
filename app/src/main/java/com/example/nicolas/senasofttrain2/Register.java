@@ -99,7 +99,6 @@ public class Register extends AppCompatActivity {
             }  else Toast.makeText(this, "Usuario ya creado", Toast.LENGTH_SHORT).show();
         }
     }
-
     public void handleBirthDate(View view) {
         final Calendar myCalendar = Calendar.getInstance();
         datePickerUi = new DatePickerDialog(Register.this,

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".UserDetail">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:id="@+id/dtlImage"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="24dp"
+            android:id="@+id/dtlName"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:orientation="vertical">
+        <LinearLayout
+            style="@style/linearHorizontalDetail">
+            <TextView
+                style="@style/detailKey"
+                android:text="Username: " />
+            <TextView
+                style="@style/detailValue"
+                android:id="@+id/dtlUsername"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/linearHorizontalDetail">
+            <TextView
+                style="@style/detailKey"
+                android:text="Fecha de Nacimiento: " />
+            <TextView
+                style="@style/detailValue"
+                android:id="@+id/dtlBirthDate"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/linearHorizontalDetail">
+            <TextView
+                style="@style/detailKey"
+                android:text="Email: "
+                />
+            <TextView
+                style="@style/detailValue"
+                android:id="@+id/dtlEmail"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
