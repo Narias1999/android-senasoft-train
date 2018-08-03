@@ -77,7 +77,7 @@ public class Menus extends AppCompatActivity
         } else if (id == R.id.nav_sites) {
             intentc = new Intent(this, places.class);
         } else if (id == R.id.nav_new_site) {
-
+            intentc = new Intent(this, Mapas.class);
         }
         startActivity(intentc);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
